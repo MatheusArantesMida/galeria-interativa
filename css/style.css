@@ -1,0 +1,387 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f4f6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    padding: 30px 0 20px 0;
+    text-align: center;
+}
+
+.p_links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin: 10px 0 20px;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 64px;
+    margin-bottom: 20px;
+    color: rgb(210, 20, 20);
+    text-decoration: none;
+}
+
+.p_links p{
+    font-size: 16px;
+    color: rgb(92, 22, 92);
+    padding: 10px;
+    background-color: rgb(202, 56, 202);
+    border-radius: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+.galeria{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 150px;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.miniatura{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.miniatura:hover{
+    transform: scale(1.05);
+    box-shadow: 1px 9px 20px 2px #918b8b;
+}
+
+.miniatura:focus-visible{
+    outline: 3px solid #2563eb;
+}
+
+.grande{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.horizontal{
+    grid-column: span 2;
+}
+
+.vertical{
+    grid-row: span 2;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 70px;
+}
+
+.modal.ativo{
+    display: flex;
+}
+
+.modal-conteudo{
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-conteudo img{
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.legenda{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px 0 10px 0;
+}
+
+.fechar{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    background-color: transparent;
+    border: none;
+
+    color: #ffff;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.fechar:hover{
+    color: #ff5555;
+}
+
+.navegacao{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 35px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+
+.navegacao:hover{
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.anterior{
+    left: 15px;
+}
+
+.proximo{
+    right: 15px;
+}
+
+.pagina-inicial .p_links a[href="./index.html"],
+.pagina-thumb .p_links a[href="./theThumb.html"],
+.pagina-index .p_links a[href="./theIndex.html"],
+.pagina-middle .p_links a[href="./theMiddle.html"],
+.pagina-ring .p_links a[href="./theRing.html"],
+.pagina-pinky .p_links a[href="./thePinky.html"]{
+    color: rgb(202, 56, 202);
+    font-weight: bold;
+}
+
+.pagina-inicial .p_links p:has(a[href="./index.html"]),
+.pagina-thumb .p_links p:has(a[href="./theThumb.html"]),
+.pagina-index .p_links p:has(a[href="./theIndex.html"]),
+.pagina-middle .p_links p:has(a[href="./theMiddle.html"]),
+.pagina-ring .p_links p:has(a[href="./theRing.html"]),
+.pagina-pinky .p_links p:has(a[href="./thePinky.html"]){
+    background-color: rgb(92, 22, 92);
+}
+
+.modal-layout{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1200px;
+    height: 75vh;
+    min-height: 0;
+    align-items: stretch;
+}
+
+.modal-conteudo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-width: 0;
+    min-height: 0;
+    max-width: none;
+    max-height: none;
+}
+
+.modal-conteudo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+.descricao{
+    min-width: 0;
+    overflow-y: auto;
+
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #222;
+    color: #fff;
+
+    overflow-wrap: anywhere;
+}
+
+.descricao h2{
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.descricao p{
+    font-size: 15px;
+    line-height: 1.7;
+    color: #ddd;
+    padding-left: 0;
+}
+
+
+@media (max-width: 1023px){
+    .modal {
+        padding: 55px 45px 20px;
+    }
+
+    .modal-layout{
+        width: 100%;
+        height: 85vh;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) auto;
+        gap: 12px;
+    }
+
+    .modal-conteudo{
+        min-height: 0;
+    }
+
+    .modal-conteudo img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .descricao{
+        max-height: 30vh;
+        padding: 12px;
+    }
+
+    .descricao h2{
+        font-size: 18px;
+    }
+
+    .navegacao{
+        top: 42%;
+        font-size: 26px;
+        padding: 10px 12px;
+    }
+
+    .anterior{
+        left: 5px;
+    }
+
+    .proximo{
+        right: 5px;
+    }
+
+    .fechar{
+        top: 8px;
+        right: 15px;
+    }
+
+    header {
+        padding: 25px 15px 15px;
+    }
+
+    h1{
+        font-size: clamp(28px, 7vw, 42px);
+        margin-bottom: 15px;
+    }
+
+    .p_links{
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        margin: 10px 0 20px;
+    }
+
+    .p_links p{
+        font-size: 14px;
+    }
+
+    .grande{
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .horizontal{
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .vertical{
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 700px){
+    .modal {
+        padding: 55px 35px 20px;
+    }
+
+    .modal-layout {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        align-content: center;
+        height: auto;
+        max-height: 85vh;
+        gap: 8px;
+    }
+
+    .modal-conteudo {
+        min-height: 0;
+        height: auto;
+    }
+
+    .modal-conteudo img {
+        width: 100%;
+        height: auto;
+        max-height: 42vh;
+        object-fit: contain;
+    }
+
+    .descricao {
+        max-height: 30vh;
+        padding: 12px;
+        overflow-y: auto;
+    }
+
+    .navegacao{
+        top: 42%;
+        font-size: 24px;
+        padding: 8px 10px;
+    }
+
+    .anterior{
+        left: 2px;
+    }
+
+    .proximo{
+        right: 2px;
+    }
+}

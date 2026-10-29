@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Prática — Galeria de Fotos com Grid Mosaico</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="pagina-thumb">
+    <header>
+        <h1>
+            <a href="./index.html">The House of Spiders</a>
+        </h1>
+            <div class="p_links">
+                <p><a href="./theThumb.html">The Thumb</a></p>
+                <p><a href="./theIndex.html">The Index</a></p>
+                <p><a href="./theMiddle.html">The Middle</a></p>
+                <p><a href="./theRing.html">The Ring</a></p>
+                <p><a href="./thePinky.html">The Pinky</a></p>
+            </div>   
+    </header>
+    <main class="galeria">
+        <img src="./assents/Foto4.png" alt="The_Thumb_Nursefather_Rodion_png"
+        class="miniatura grande" tabindex=1">
+        <img src="./assents/Foto9.png" alt="The_Thumb_Apprentice_Heathcliff_png"
+        class="miniatura grande" tabindex="2">
+    </main>
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Visualizador de imagens" aria-hidden="true">
+        
+        <button
+            id="fechar"
+            class="fechar"
+            aria-label="Fechar imagem"
+        >
+            &times;
+        </button>
+
+        <button
+            id="anterior"
+            class="navegacao anterior"
+            aria-label="imagem anterior"
+        >
+            &#10094;
+        </button>
+        <div class="modal-layout">
+    <div class="modal-conteudo">
+        <img src="" alt="" id="imagemModal">
+    </div>
+    <aside class="descricao">
+        <h2 id="tituloDescricao"></h2>
+        <p id="textoDescricao"></p>
+    </aside>
+    </div>
+    <div class="legenda">
+        <span id="nomeImagem"></span>
+        <span id="contador"></span>
+    </div>
+        <button
+            id="proximo"
+            class="navegacao proximo"
+            aria-label="Proxima imagem"
+        >
+         &#10095;
+        </button>
+    </div>
+    <script src="./script/theThumb.js"></script>
+</body>
+</html>
